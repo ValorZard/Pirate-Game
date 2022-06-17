@@ -24,6 +24,10 @@ config/name="Pirate-Game"
 run/main_scene="res://Root.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+CoinSystem="*res://CoinSystem.gd"
+
 [gdnative]
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]

@@ -3,6 +3,8 @@ extends KinematicBody2D
 export var speed = 400 #how fast the player moves inpixels/sec
 # var screen_size #side of game window
 
+signal add_coins
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -52,3 +54,5 @@ func _process(delta):
 		#$AnimatedSprite.flip_h = false
 		#$AnimatedSprite.flip_h = false
 
+func _on_Player_body_entered(Coin):
+	emit_signal("add_coins")
