@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Root.gd" type="Script" id=4]
+[ext_resource path="res://Level.gd" type="Script" id=4]
+[ext_resource path="res://Slime.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 22.8736, 24.3121 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 204.444, 92.6891 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32.0992, 32.0415 )
 
 [node name="Main" type="Node2D"]
 position = Vector2( -1, -1 )
@@ -22,16 +34,44 @@ position = Vector2( 805.5, 466 )
 scale = Vector2( 6.89063, 4.53125 )
 texture = ExtResource( 2 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon2/StaticBody2D"]
+position = Vector2( -23.0023, -22.069 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Icon2/StaticBody2D"]
+position = Vector2( 22.2766, -22.069 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Icon2/StaticBody2D"]
+position = Vector2( -1.03231, -7.53966 )
+shape = SubResource( 2 )
+
 [node name="Icon3" type="Sprite" parent="."]
 position = Vector2( 204.5, 505 )
 scale = Vector2( 6.39063, 2.875 )
 texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon3"]
+position = Vector2( -32, -175.652 )
+scale = Vector2( 0.156479, 0.347826 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon3/StaticBody2D"]
+position = Vector2( 207, 506.689 )
+shape = SubResource( 3 )
 
 [node name="Icon4" type="Sprite" parent="."]
 position = Vector2( 513, 396 )
 rotation = 1.16413
 scale = Vector2( 0.71875, 3.81352 )
 texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon4/StaticBody2D"]
+position = Vector2( 0.611816, 0.0781937 )
+shape = SubResource( 4 )
 
 [node name="Coin2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 893, 295 )
@@ -41,3 +81,6 @@ position = Vector2( 979, 294 )
 
 [node name="Coin" parent="." instance=ExtResource( 3 )]
 position = Vector2( 820, 294 )
+
+[node name="Slime" parent="." instance=ExtResource( 5 )]
+position = Vector2( 174, 374 )
