@@ -7,8 +7,8 @@
 radius = 339.419
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 186.846
-height = 109.91
+radius = 84.6923
+height = 92.2684
 
 [node name="Slime" type="KinematicBody2D"]
 position = Vector2( -2, -13 )
@@ -28,3 +28,6 @@ shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+
+[connection signal="body_entered" from="Detector" to="." method="_on_Detector_body_entered"]
+[connection signal="body_exited" from="Detector" to="." method="_on_Detector_body_exited"]

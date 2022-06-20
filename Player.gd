@@ -1,7 +1,10 @@
 extends KinematicBody2D
 
+class_name Player
 export var speed = 400 #how fast the player moves inpixels/sec
 # var screen_size #side of game window
+export (PackedScene) var bullet
+
 
 signal add_coins
 
@@ -26,6 +29,8 @@ func _process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -33,7 +38,7 @@ func _process(delta):
 	else:
 		pass
 		#$AnimatedSprite.stop()
-	position += velocity * delta
+	move_and_slide(velocity)
 	#position.x = clamp(position.x, 0, screen_size.x)
 	#position.y = clamp(position.y, 0, screen_size.y)
 	
@@ -56,3 +61,9 @@ func _process(delta):
 
 func _on_Player_body_entered(Coin):
 	emit_signal("add_coins")
+
+func shoot():
+	var b = bullet.instance()
+	b.bodyshotfrom = self
+	add_child (b)
+	
