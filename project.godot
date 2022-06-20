@@ -70,11 +70,6 @@ _global_script_classes=[ {
 "path": "res://addons/dialogic/Example Assets/History/HistoryRow.gd"
 }, {
 "base": "KinematicBody2D",
-"class": "Mobs",
-"language": "GDScript",
-"path": "res://enemy/Slime.gd"
-}, {
-"base": "KinematicBody2D",
 "class": "PlayerController",
 "language": "GDScript",
 "path": "res://player/Player.gd"
@@ -92,7 +87,6 @@ _global_script_class_icons={
 "DialogicUtil": "",
 "GitAPI": "",
 "HistoryRow": "",
-"Mobs": "",
 "PlayerController": ""
 }
 

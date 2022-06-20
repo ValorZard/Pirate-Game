@@ -1,11 +1,12 @@
 extends KinematicBody2D
 
-class_name Mobs
+#class_name Mobs
 
-var player:Node
-var angle_cone_of_vision := deg2rad(30.0)
-var max_view_distance := 800.00
-var angle_between_rays := deg2rad(5.0)
+var player: PlayerController
+export var health : int = 10
+
+func _ready():
+	add_to_group("mobs")
 
 func _process(delta):
 	pass
@@ -32,7 +33,13 @@ func _physics_process(delta: float) -> void:
 #			break
 #
 #	var does_see_player := target != null
+func on_hit():
+	health -= 1
+	if health <= 0:
+		die()
 
+func die():
+	queue_free()
 
 func _on_Detector_body_entered(body):
 	if body is PlayerController:

@@ -66,7 +66,9 @@ func _on_Player_body_entered(Coin):
 func shoot():
 	var b = bullet.instance()
 	b.bodyshotfrom = self
-	b.direction = Vector2(10, 10)
+	var direction : Vector2 = get_global_mouse_position() - self.position
+	direction = direction.normalized()
+	b.direction = direction
 	b.position = self.position
 	get_tree().get_root().add_child(b)
 	
