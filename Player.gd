@@ -4,6 +4,7 @@ class_name Player
 export var speed = 400 #how fast the player moves inpixels/sec
 # var screen_size #side of game window
 export (PackedScene) var bullet
+export var bullet_speed = 100
 
 
 signal add_coins

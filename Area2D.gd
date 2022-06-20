@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 750
+var bullet_speed = 100
 var direction
 var bodyshotfrom
 
@@ -10,5 +10,5 @@ func _physics_process(delta):
 	pass
 
 func _on_PlayerBullet_body_entered(body):
-	if body != bodyshotfrom:
-		body.queue_free()
+	if body.is_in_group("Mobs"):
+		queue_free()
