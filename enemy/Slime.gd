@@ -35,11 +35,11 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_Detector_body_entered(body):
-	if body is Player:
+	if body is PlayerController:
 		player = body
 	pass
 
 func _on_Detector_body_exited(body):
-	if body is Player:
+	if body is PlayerController:
 		player = null
 	pass 

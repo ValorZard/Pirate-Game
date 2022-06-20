@@ -1,12 +1,12 @@
 extends Area2D
 
 var bullet_speed = 100
-var direction
+var direction : Vector2
 var bodyshotfrom
 
 func _physics_process(delta):
-	var distance: Vector2
-	#move_and_slide(distance)
+	#var distance: Vector2
+	position += direction * delta
 	pass
 
 func _on_PlayerBullet_body_entered(body):

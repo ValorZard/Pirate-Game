@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Area2D.gd" type="Script" id=1]
+[ext_resource path="res://bullets/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://laserRed01.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]

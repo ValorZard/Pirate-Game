@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-class_name Player
+class_name PlayerController
 export var speed = 400 #how fast the player moves inpixels/sec
 # var screen_size #side of game window
 export (PackedScene) var bullet
@@ -66,5 +66,7 @@ func _on_Player_body_entered(Coin):
 func shoot():
 	var b = bullet.instance()
 	b.bodyshotfrom = self
-	add_child (b)
+	b.direction = Vector2(10, 10)
+	b.position = self.position
+	get_tree().get_root().add_child(b)
 	
