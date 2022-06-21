@@ -5,15 +5,17 @@ export var speed = 400 #how fast the player moves inpixels/sec
 # var screen_size #side of game window
 export (PackedScene) var bullet
 export var bullet_speed = 100
+export var max_health : int = 10
 export var health : int = 10
 
 signal add_coins
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	#hide()
-	#screen_size = get_viewport_rect().size
+	# health bar stuff
+	$Camera2D/PlayerUI/UIContainer/HealthBar.max_value = max_health
+	health = max_health
+	$Camera2D/PlayerUI/UIContainer/HealthBar.value = health
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,6 +76,7 @@ func shoot():
 	
 func on_hit():
 	health -= 1
+	$Camera2D/PlayerUI/UIContainer/HealthBar.value = health
 	if health <= 0:
 		die()
 
