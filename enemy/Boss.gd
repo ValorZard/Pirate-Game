@@ -7,6 +7,11 @@ export var health : int = 10
 export var speed : float = 100
 export var default_position : Vector2
 
+# combat variables
+export (PackedScene) var cannon_ball = preload("res://bullets/BossCannonBall.tscn")
+var max_time_to_reload : float = 0.5
+var time_to_reload : float
+
 # dialog related variables
 export var first_dialog : String = "/first_contact"
 export var rematch_dialog : String = "/rematch"
@@ -23,20 +28,30 @@ func _ready():
 	
 	# self default position to where we place enemy at the start of the game
 	default_position = self.position
+	
+	time_to_reload = 0
 
 func _process(delta):
 	pass
 
 func _physics_process(delta: float) -> void:
-	var distance: Vector2
+	var direction : Vector2
 	if player != null:
 		#tracking the player
-		distance = player.position - self.position
+		var distance = player.position - self.position
 		# we normalize the vector and then times by speed to make vector math nicer
+		direction = distance.normalized()
+		# then, shoot bullets if reload time is up
+		if time_to_reload <= 0:
+			shoot(distance)
+			time_to_reload = max_time_to_reload
+		time_to_reload -= delta
 	else:
 		# move back to starting position
-		distance = default_position - self.position
-	move_and_slide(distance.normalized() * speed)
+		var distance = default_position - self.position
+		# we normalize the vector and then times by speed to make vector math nicer
+		direction = distance.normalized()
+	move_and_slide(direction * speed)
 
 
 func on_hit():
@@ -68,3 +83,10 @@ func _on_Detector_body_exited(body):
 		player = null
 		# remove conversation since you left their area
 		remove_child(current_dialog)
+
+func shoot(direction : Vector2):
+	var c = cannon_ball.instance()
+	c.bodyshotfrom = self
+	c.direction = direction
+	c.position = self.position
+	get_tree().get_root().add_child(c)
