@@ -5,7 +5,7 @@ export var speed = 400 #how fast the player moves inpixels/sec
 # var screen_size #side of game window
 export (PackedScene) var bullet
 export var bullet_speed = 100
-
+export var health : int = 10
 
 signal add_coins
 
@@ -72,3 +72,11 @@ func shoot():
 	b.position = self.position
 	get_tree().get_root().add_child(b)
 	
+func on_hit():
+	health -= 1
+	if health <= 0:
+		die()
+
+func die():
+	queue_free() #for now
+
