@@ -20,5 +20,5 @@ func _physics_process(delta):
 func _on_CannonBall_body_entered(body):
 	# on hit for the player exists on snowys code, but not on mine
 	if body is PlayerController:
-		#body.on_hit()
+		body.on_hit()
 		queue_free()
