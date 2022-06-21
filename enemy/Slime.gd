@@ -3,7 +3,8 @@ extends KinematicBody2D
 #class_name Mobs
 
 var player: PlayerController
-export var health : int = 10
+export var max_health : int = 10
+var health : int
 export var cannonball = preload("res://bullets/SlimeCannonBall.tscn")
 export var max_time_to_shoot : float = 1.5
 var time_to_shoot : float
@@ -14,6 +15,10 @@ func _ready():
 	add_to_group("mobs")
 	time_to_shoot = max_time_to_shoot
 	default_position = self.position
+	# health
+	health = max_health
+	$HealthBar.max_value = max_health
+	$HealthBar.value = health
 
 func _process(delta):
 	pass
@@ -35,6 +40,7 @@ func _physics_process(delta: float) -> void:
 
 func on_hit():
 	health -= 1
+	$HealthBar.value = health
 	if health <= 0:
 		die()
 
