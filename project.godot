@@ -93,7 +93,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Pirate-Game"
-run/main_scene="res://level/Root.tscn"
+run/main_scene="res://level/menu/MenuScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

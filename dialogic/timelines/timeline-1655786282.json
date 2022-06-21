@@ -1,0 +1,81 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "4:30 PM, after school on a Thursday..."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1655786355.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1655786355.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ugh, so tired of school."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Erika Crofesi, age 16, junior in High School. By day, she is a normal, somewhat nerdy girl who keeps to herself, and doesn't have many friends. But, on the internet, she's so much more..."
+		},
+		{
+			"character": "character-1655786355.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Logging in as RoseHunter64..."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Erika sees a chatroom pop up on the screen"
+		},
+		{
+			"character": "character-1655786355.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey guys, what's up?"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "AHHHHH! We're being hacked!"
+		},
+		{
+			"character": "character-1655786355.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No worries! I'll do something about it :D"
+		},
+		{
+			"change_scene": "res://level/test_levels/Root.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.2 - Dev",
+		"file": "timeline-1655786282.json",
+		"name": "prologue"
+	}
+}

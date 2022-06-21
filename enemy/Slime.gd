@@ -4,7 +4,7 @@ extends KinematicBody2D
 
 var player: PlayerController
 export var health : int = 10
-export var cannonball = preload("res://SlimeCannonBall.tscn")
+export var cannonball = preload("res://bullets/SlimeCannonBall.tscn")
 export var max_time_to_shoot : float = 1.5
 var time_to_shoot : float
 export var default_position : Vector2
