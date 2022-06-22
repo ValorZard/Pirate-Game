@@ -69,6 +69,7 @@ func shoot():
 	direction = direction.normalized()
 	b.direction = direction
 	b.position = self.position
+	b.bullet_speed = bullet_speed
 	get_tree().get_root().add_child(b)
 	
 func on_hit():
