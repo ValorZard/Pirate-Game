@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-#class_name Mobs
+class_name Slime
 
 var player: PlayerController
 export var max_health : int = 10
@@ -11,6 +11,8 @@ var time_to_shoot : float
 export var default_position : Vector2
 export var speed : float = 100.0
 
+var in_dialog : bool = false
+
 func _ready():
 	add_to_group("mobs")
 	time_to_shoot = max_time_to_shoot
@@ -19,24 +21,28 @@ func _ready():
 	health = max_health
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
+	
+	SignalManager.connect("start_dialog", self, "start_dialog")
+	SignalManager.connect("end_dialog", self, "end_dialog")
 
 func _process(delta):
 	pass
 
 func _physics_process(delta: float) -> void:
-	if player != null:
-		time_to_shoot -= delta
-		var distance: Vector2
-		distance = player.position - self.position
-		var direction = distance.normalized()
-		move_and_slide(direction * speed) #tracking, basically - snowy
-		if time_to_shoot <= 0:
-			fire()
-			time_to_shoot = max_time_to_shoot
-	else:
-		var distance = default_position - self.position
-		var direction = distance.normalized()
-		move_and_slide(direction * speed)
+	if !in_dialog:
+		if player != null:
+			time_to_shoot -= delta
+			var distance: Vector2
+			distance = player.position - self.position
+			var direction = distance.normalized()
+			move_and_slide(direction * speed) #tracking, basically - snowy
+			if time_to_shoot <= 0:
+				fire()
+				time_to_shoot = max_time_to_shoot
+		else:
+			var distance = default_position - self.position
+			var direction = distance.normalized()
+			move_and_slide(direction * speed)
 
 func on_hit():
 	health -= 1
@@ -50,7 +56,7 @@ func die():
 func _on_Detector_body_entered(body):
 	if body is PlayerController:
 		player = body
-		fire()
+		#fire()
 	pass
 
 func _on_Detector_body_exited(body):
@@ -64,3 +70,9 @@ func fire():
 	c.position = self.position
 	c.direction = direction.normalized()
 	get_tree().get_root().add_child(c)
+
+func start_dialog():
+	in_dialog = true
+
+func end_dialog():
+	in_dialog = false

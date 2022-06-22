@@ -19,6 +19,7 @@ export var rematch_dialog : String = "/rematch"
 export var defeat_dialog : String = "/defeat"
 
 var current_dialog
+var in_dialog : bool = false
 
 var first_time_speaking : bool = true
 
@@ -36,28 +37,34 @@ func _ready():
 	health = max_health
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
+	
+	# default dialog stuff
+	current_dialog = Dialogic.start(first_dialog)
+	SignalManager.connect("start_dialog", self, "start_dialog")
+	SignalManager.connect("end_dialog", self, "end_dialog")
 
 func _process(delta):
 	pass
 
 func _physics_process(delta: float) -> void:
-	var direction : Vector2
-	if player != null:
-		#tracking the player
-		var distance = player.position - self.position
-		# we normalize the vector and then times by speed to make vector math nicer
-		direction = distance.normalized()
-		# then, shoot bullets if reload time is up
-		if time_to_reload <= 0:
-			shoot(distance)
-			time_to_reload = max_time_to_reload
-		time_to_reload -= delta
-	else:
-		# move back to starting position
-		var distance = default_position - self.position
-		# we normalize the vector and then times by speed to make vector math nicer
-		direction = distance.normalized()
-	move_and_slide(direction * speed)
+	if !in_dialog:
+		var direction : Vector2
+		if player != null:
+			#tracking the player
+			var distance = player.position - self.position
+			# we normalize the vector and then times by speed to make vector math nicer
+			direction = distance.normalized()
+			# then, shoot bullets if reload time is up
+			if time_to_reload <= 0:
+				shoot(distance)
+				time_to_reload = max_time_to_reload
+			time_to_reload -= delta
+		else:
+			# move back to starting position
+			var distance = default_position - self.position
+			# we normalize the vector and then times by speed to make vector math nicer
+			direction = distance.normalized()
+		move_and_slide(direction * speed)
 
 
 func on_hit():
@@ -65,6 +72,7 @@ func on_hit():
 	$HealthBar.value = health
 	# interupt dialog since you hit them
 	remove_child(current_dialog)
+	#current_dialog.queue_free()
 	if health <= 0:
 		die()
 
@@ -72,24 +80,30 @@ func die():
 	# right now this doesn't work since the enemy will die and delete itself before you can actually
 	# delete itself before you can actually read the converstaion. Bit of an issue
 	current_dialog = Dialogic.start(defeat_dialog)
-	add_child(current_dialog)
+	current_dialog.connect("dialogic_signal", self, "dialog_listener")
+	get_tree().get_root().add_child(current_dialog)
 	queue_free()
 
 func _on_Detector_body_entered(body):
 	if body is PlayerController:
 		player = body
+		# handle dialog
 		if first_time_speaking:
 			current_dialog = Dialogic.start(first_dialog)
 			first_time_speaking = false
 		else:
 			current_dialog = Dialogic.start(rematch_dialog)
-		add_child(current_dialog)
+		# add signal callbacks for dialogic signals
+		current_dialog.connect("dialogic_signal", self, "dialog_listener")
+		get_tree().get_root().add_child(current_dialog)
 
 func _on_Detector_body_exited(body):
 	if body is PlayerController:
 		player = null
 		# remove conversation since you left their area
-		remove_child(current_dialog)
+		#remove_child(current_dialog)
+		#current_dialog.queue_free()
+
 
 func shoot(direction : Vector2):
 	var c = cannon_ball.instance()
@@ -97,3 +111,19 @@ func shoot(direction : Vector2):
 	c.direction = direction
 	c.position = self.position
 	get_tree().get_root().add_child(c)
+
+
+func dialog_listener(string):
+	# we send a signal from the boss to signal manager saying that dialog has started
+	# if dialog has started, pause everything
+	match string:
+		"start_dialog":
+			SignalManager.emit_signal("start_dialog")
+		"end_dialog":
+			SignalManager.emit_signal("end_dialog")
+
+func start_dialog():
+	in_dialog = true
+
+func end_dialog():
+	in_dialog = false

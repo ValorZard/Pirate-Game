@@ -1,10 +1,18 @@
 {
 	"events": [
 		{
+			"emit_signal": "start_dialog",
+			"event_id": "dialogic_040"
+		},
+		{
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Hey, you! You lookin' for a fight?"
+		},
+		{
+			"emit_signal": "end_dialog",
+			"event_id": "dialogic_040"
 		}
 	],
 	"metadata": {

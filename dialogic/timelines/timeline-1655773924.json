@@ -1,10 +1,18 @@
 {
 	"events": [
 		{
+			"emit_signal": "start_dialog",
+			"event_id": "dialogic_040"
+		},
+		{
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Back for a rematch?"
+		},
+		{
+			"emit_signal": "end_dialog",
+			"event_id": "dialogic_040"
 		}
 	],
 	"metadata": {
