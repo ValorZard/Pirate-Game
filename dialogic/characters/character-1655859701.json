@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1655859701.json",
+	"mirror_portraits": true,
+	"name": "PirateSam96",
+	"nickname": "Sam Winston",
+	"nickname_bool": true,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://enemy/bosses/IMG_6377.png"
+		}
+	],
+	"scale": 30,
+	"theme": ""
+}

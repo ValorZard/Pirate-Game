@@ -10,7 +10,7 @@ export var default_position : Vector2
 
 # combat variables
 export (PackedScene) var cannon_ball = preload("res://bullets/BossCannonBall.tscn")
-var max_time_to_reload : float = 0.5
+export var max_time_to_reload : float = 0.5
 var time_to_reload : float
 
 # dialog related variables
