@@ -9,13 +9,13 @@
 	"nickname": "RoseHunter64",
 	"nickname_bool": true,
 	"offset_x": 0,
-	"offset_y": 0,
+	"offset_y": 50,
 	"portraits": [
 		{
 			"name": "Default",
-			"path": ""
+			"path": "res://player/IMG_6374.png"
 		}
 	],
-	"scale": 100,
+	"scale": 30,
 	"theme": ""
 }
