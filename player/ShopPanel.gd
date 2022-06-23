@@ -27,6 +27,7 @@ func _on_ReloadButton_button_down():
 
 func _on_HealButton_button_down():
 	pass # Replace with function body.
+	
 
 
 func _on_RotateButton_button_down():

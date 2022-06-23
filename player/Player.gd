@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 class_name PlayerController
-export var speed = 400 #how fast the player moves inpixels/sec
 # var screen_size #side of game window
 # combat variables
 export (PackedScene) var bullet
@@ -14,6 +13,14 @@ export var health : int = 10
 
 # booleans
 var in_dialog : bool = false
+
+#movement stuff
+var friction = 0.1
+var acceleration = 0.5
+var velocity = Vector2.ZERO
+var current_rotation : float = 0
+export var speed : float = 400 #how fast the player moves inpixels/sec
+var rotation_speed : float = 1
 
 signal add_coins
 
@@ -31,18 +38,25 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
 func _process(delta : float):
 	if !in_dialog:
-		var velocity = Vector2.ZERO # The player's movement vector.
-		if Input.is_action_pressed("move_right"):
-			velocity.x += 1
-		if Input.is_action_pressed("move_left"):
-			velocity.x -= 1
+		var input_dir = 0
+		#move
 		if Input.is_action_pressed("move_down"):
-			velocity.y += 1
+			input_dir += 1
 		if Input.is_action_pressed("move_up"):
-			velocity.y -= 1
+			input_dir -= 1
+		#rotate
+		if Input.is_action_pressed("move_right"):
+			current_rotation += rotation_speed
+		if Input.is_action_pressed("move_left"):
+			current_rotation -= rotation_speed
+		#friction
+		if input_dir != 0:
+			velocity.y = lerp(velocity.y, input_dir * speed, acceleration)
+		else:	
+			velocity.y = lerp(velocity.y, 0, friction)
+		
 		
 		# shootin code
 		time_to_reload -= delta
@@ -54,6 +68,7 @@ func _process(delta : float):
 
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed
+			velocity = velocity.rotated(deg2rad(current_rotation))
 		else:
 			pass
 			
@@ -71,7 +86,7 @@ func shoot():
 	b.position = self.position
 	b.bullet_speed = bullet_speed
 	get_tree().get_root().add_child(b)
-	
+
 func on_hit():
 	health -= 1
 	$Camera2D/PlayerUI/UIContainer/HealthBar.value = health
