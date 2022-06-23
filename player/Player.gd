@@ -65,13 +65,8 @@ func _process(delta : float):
 			if Input.is_action_just_pressed("shoot"):
 				shoot()
 				time_to_reload = max_time_to_reload
-
-		if velocity.length() > 0:
-			#velocity = velocity.rotated(deg2rad(current_rotation))
-			pass
-		else:
-			pass
-			
+		
+		
 		move_and_slide(velocity.rotated(deg2rad(current_rotation)))
 
 func _on_Player_body_entered(Coin):
