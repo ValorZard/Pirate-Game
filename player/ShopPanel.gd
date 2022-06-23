@@ -39,7 +39,7 @@ func _ready():
 	# SUPER FUCING FRAGILE
 	player = get_parent().get_parent().get_parent().get_parent()
 	# for testing purposes
-	CoinSystem.coin_amt = 10
+	# CoinSystem.coin_amt = 10
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

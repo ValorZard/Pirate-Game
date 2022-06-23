@@ -13,6 +13,18 @@ export (PackedScene) var cannon_ball = preload("res://bullets/BossCannonBall.tsc
 export var max_time_to_reload : float = 1.5
 var time_to_reload : float
 
+# minion spawn
+var has_minion_spawned : bool = false
+var minion_spawn_percent : float = 0.5 # the percentage of health left when minions spawn
+export var minion = preload("res://enemy/Slime.tscn")
+export var minion_amt_dropped : int = 3
+export var minion_spawn_range : float = 100
+
+# rewards
+export var coin = preload("res://level/collectibles/Coin.tscn")
+export var coin_amt_dropped : int = 3
+export var coin_spawn_range : float = 100
+
 # dialog related variables
 export var first_dialog : String = "/first_contact"
 export var rematch_dialog : String = "/rematch"
@@ -59,6 +71,19 @@ func _physics_process(delta: float) -> void:
 				shoot()
 				time_to_reload = max_time_to_reload
 			time_to_reload -= delta
+			#print((max_health * minion_spawn_percent <= health))
+			# special case: if boss is below a certain health, it will spawn minions
+			if(!has_minion_spawned and (max_health * minion_spawn_percent >= health)):
+				var i = 0
+				while(i < minion_amt_dropped):
+					var m = minion.instance()
+					m.position = self.position
+					m.position.x += rand_range(-minion_spawn_range, minion_spawn_range)
+					m.position.y += rand_range(-minion_spawn_range, minion_spawn_range)
+					get_tree().get_root().add_child(m)
+					i += 1
+				has_minion_spawned = true
+				print("AHHHH")
 		else:
 			# move back to starting position
 			var distance = default_position - self.position
@@ -82,7 +107,16 @@ func die():
 	current_dialog = Dialogic.start(defeat_dialog)
 	current_dialog.connect("dialogic_signal", self, "dialog_listener")
 	get_tree().get_root().add_child(current_dialog)
-	#queue_free() 
+	# we do queue free in the dialog listener to not break shit
+	# reward player when die
+	var i = 0
+	while(i < coin_amt_dropped):
+		var c = coin.instance()
+		c.position = self.position
+		c.position.x += rand_range(-coin_spawn_range, coin_spawn_range)
+		c.position.y += rand_range(-coin_spawn_range, coin_spawn_range)
+		get_tree().get_root().add_child(c)
+		i += 1
 	
 func _on_Detector_body_entered(body):
 	if body is PlayerController:

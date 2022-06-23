@@ -6,6 +6,7 @@ var player: PlayerController
 export var max_health : int = 10
 var health : int
 export var cannonball = preload("res://bullets/SlimeCannonBall.tscn")
+export var coin = preload("res://level/collectibles/Coin.tscn")
 export var max_time_to_shoot : float = 1.5
 var time_to_shoot : float
 export var default_position : Vector2
@@ -51,6 +52,10 @@ func on_hit():
 		die()
 
 func die():
+	# reward player when die
+	var c = coin.instance()
+	c.position = self.position
+	get_tree().get_root().add_child(c)
 	queue_free()
 
 func _on_Detector_body_entered(body):
