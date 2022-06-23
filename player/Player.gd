@@ -58,7 +58,7 @@ func _process(delta : float):
 			velocity.y = lerp(velocity.y, 0, friction)
 		
 		
-		print(velocity)
+		#print(velocity)
 		# shootin code
 		time_to_reload -= delta
 		# be able to shoot whenever you want once you've finished reloading

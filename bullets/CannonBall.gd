@@ -12,6 +12,7 @@ var in_dialog : bool = false
 func _ready():
 	SignalManager.connect("start_dialog", self, "start_dialog")
 	SignalManager.connect("end_dialog", self, "end_dialog")
+	self.connect("body_entered", self, "_on_Area2D_body_entered")
 
 func start_dialog():
 	in_dialog = true
