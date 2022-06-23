@@ -8,14 +8,26 @@
 	"name": "Erika Crofesi",
 	"nickname": "RoseHunter64",
 	"nickname_bool": true,
-	"offset_x": 0,
-	"offset_y": 50,
+	"offset_x": 70,
+	"offset_y": 20,
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://player/IMG_6374.png"
+			"path": ""
+		},
+		{
+			"name": "Default1",
+			"path": "res://player/portraits/IMG_6389.png"
+		},
+		{
+			"name": "Surprise",
+			"path": "res://player/portraits/IMG_6391.png"
+		},
+		{
+			"name": "Smile",
+			"path": "res://player/portraits/IMG_6390.png"
 		}
 	],
-	"scale": 30,
+	"scale": 28,
 	"theme": ""
 }

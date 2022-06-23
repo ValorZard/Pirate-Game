@@ -94,6 +94,7 @@ func on_hit():
 
 func die():
 	queue_free() #for now
+	get_tree().change_scene("res://level/menu/MenuScreen.tscn")
 
 func start_dialog():
 	in_dialog = true

@@ -28,7 +28,7 @@
 			"character": "character-1655861450.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "INSERT DIALOG HERE"
+			"text": "In the name of the Neko Fleet!"
 		},
 		{
 			"emit_signal": "end_dialog",

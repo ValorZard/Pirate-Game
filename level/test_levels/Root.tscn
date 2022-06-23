@@ -1,68 +1,30 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://level/Level.gd" type="Script" id=1]
 [ext_resource path="res://enemy/bosses/Boss.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://enemy/Slime.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level/collectibles/Coin.tscn" type="PackedScene" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://level/Tiles/Water.tres" type="TileSet" id=6]
 [ext_resource path="res://enemy/bosses/KidBoss.tscn" type="PackedScene" id=7]
 [ext_resource path="res://enemy/bosses/FurryBoss.tscn" type="PackedScene" id=8]
 [ext_resource path="res://enemy/bosses/EGirlBoss.tscn" type="PackedScene" id=9]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 30.0127, 24.3121 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 204.444, 92.6891 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 32.0992, 32.0415 )
+[ext_resource path="res://level/Tiles/Obstacles.tres" type="TileSet" id=10]
 
 [node name="Main" type="Node2D"]
 position = Vector2( -1, -1 )
 script = ExtResource( 1 )
 
-[node name="Icon" type="Sprite" parent="."]
-position = Vector2( 99, 360.5 )
-scale = Vector2( 1, 1.73438 )
-texture = ExtResource( 6 )
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+format = 1
+tile_data = PoolIntArray( -1572886, 536870912, 0, -1638400, 536870912, 0, -1638378, 536870912, 0, -196630, 536870912, 0, -262144, 536870912, 0, -262122, 536870912, 0, 1179626, 536870912, 0, 1114112, 536870912, 0, 1114134, 536870912, 0 )
 
-[node name="Icon2" type="Sprite" parent="."]
-position = Vector2( 815, 462 )
-scale = Vector2( 6.89063, 4.53125 )
-texture = ExtResource( 6 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Icon2"]
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Icon2/StaticBody2D"]
-position = Vector2( 0.753662, -5.07585 )
-shape = SubResource( 2 )
-
-[node name="Icon3" type="Sprite" parent="."]
-position = Vector2( 204.5, 505 )
-scale = Vector2( 6.39063, 2.875 )
-texture = ExtResource( 6 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Icon3"]
-position = Vector2( -32, -175.652 )
-scale = Vector2( 0.156479, 0.347826 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon3/StaticBody2D"]
-position = Vector2( 207, 506.689 )
-shape = SubResource( 3 )
-
-[node name="Icon4" type="Sprite" parent="."]
-position = Vector2( 513, 396 )
-rotation = 1.16413
-scale = Vector2( 0.71875, 3.81352 )
-texture = ExtResource( 6 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Icon4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon4/StaticBody2D"]
-position = Vector2( 0.611816, 0.0781937 )
-shape = SubResource( 4 )
+[node name="TileMap2" type="TileMap" parent="."]
+scale = Vector2( 0.2, 0.2 )
+tile_set = ExtResource( 10 )
+format = 1
+tile_data = PoolIntArray( -4259806, 3, 0, -3997674, 536870916, 0, -3997624, 536870914, 0, -3801082, 4, 0, -3735508, 536870917, 0, -3604423, 2, 0, -3604383, 5, 0, -3211189, 3, 0, -3014628, 536870914, 0, -2883515, 536870916, 0, -2359193, 3, 0, -2293667, 5, 0, -917405, 1, 0, -720739, 3, 0, -196445, 4, 0, 131206, 536870913, 0, 262318, 5, 0, 524387, 5, 0, 852139, 536870917, 0, 1376182, 2, 0, 1376399, 2, 0, 1704063, 0, 0, 2162630, 5, 0, 2359230, 536870912, 0, 2817959, 5, 0, 2949240, 536870913, 0, 3145630, 536870917, 0, 3145658, 536870916, 0, 3211418, 3, 0, 3997840, 1, 0, 4128677, 2, 0, 4194476, 536870916, 0, 4390867, 0, 0, 4391058, 2, 0, 4521903, 3, 0, 4980681, 4, 0, 4980900, 3, 0, 5046381, 2, 0, 5308543, 3, 0, 5832626, 536870912, 0, 5832642, 3, 0, 5767314, 536870917, 0, 5898169, 4, 0, 6225865, 2, 0, 6226041, 536870917, 0 )
 
 [node name="Coin2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 893, 295 )

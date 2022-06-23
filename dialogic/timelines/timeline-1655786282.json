@@ -14,7 +14,7 @@
 			"character": "character-1655786355.json",
 			"event_id": "dialogic_002",
 			"mirror_portrait": false,
-			"portrait": "Default",
+			"portrait": "Default1",
 			"portrait_definition": "",
 			"position": {
 				"0": false,
@@ -29,7 +29,7 @@
 		{
 			"character": "character-1655786355.json",
 			"event_id": "dialogic_001",
-			"portrait": "",
+			"portrait": "Default1",
 			"text": "Ugh, so tired of school."
 		},
 		{
@@ -53,7 +53,7 @@
 		{
 			"character": "character-1655786355.json",
 			"event_id": "dialogic_001",
-			"portrait": "",
+			"portrait": "Smile",
 			"text": "Hey guys, what's up?"
 		},
 		{
