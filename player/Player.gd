@@ -57,6 +57,7 @@ func _process(delta : float):
 		else:	
 			velocity.y = lerp(velocity.y, 0, friction)
 		
+		
 		print(velocity)
 		# shootin code
 		time_to_reload -= delta
@@ -68,6 +69,8 @@ func _process(delta : float):
 		
 		
 		move_and_slide(velocity.rotated(deg2rad(current_rotation)))
+		
+		$Icon.rotation_degrees = current_rotation
 
 func _on_Player_body_entered(Coin):
 	emit_signal("add_coins")
