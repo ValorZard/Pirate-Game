@@ -13,6 +13,8 @@ radius = 200.0
 [node name="EGirlBoss" type="KinematicBody2D"]
 script = ExtResource( 2 )
 first_dialog = "/first_egirl_talk"
+rematch_dialog = "/egirl_rematch"
+defeat_dialog = "/egirl_defeat"
 
 [node name="Icon" type="Sprite" parent="."]
 scale = Vector2( 0.05, 0.05 )

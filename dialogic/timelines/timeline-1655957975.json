@@ -28,7 +28,7 @@
 			"character": "character-1655861526.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "\"THIS BATTLE WAS SPONSORED BY RAID SHADOW LEGENDS!\""
+			"text": "THIS BATTLE WAS SPONSORED BY RAID SHADOW LEGENDS!"
 		},
 		{
 			"emit_signal": "end_dialog",
