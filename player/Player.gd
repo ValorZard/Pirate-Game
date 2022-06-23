@@ -5,7 +5,7 @@ class_name PlayerController
 # combat variables
 export (PackedScene) var bullet
 export var bullet_speed = 100
-export var max_time_to_reload : float = 0.5
+export var max_time_to_reload : float = 0.8
 var time_to_reload : float = 0
 
 export var max_health : int = 10
@@ -19,8 +19,8 @@ var friction = 0.1
 var acceleration = 0.5
 var velocity = Vector2.ZERO
 var current_rotation : float = 0
-export var speed : float = 400 #how fast the player moves inpixels/sec
-var rotation_speed : float = 1
+export var speed : float = 250 #how fast the player moves inpixels/sec
+var rotation_speed : float = 0.5
 
 signal add_coins
 
@@ -70,7 +70,9 @@ func _process(delta : float):
 		
 		move_and_slide(velocity.rotated(deg2rad(current_rotation)))
 		
+		# visual stuff
 		$Icon.rotation_degrees = current_rotation
+		$Camera2D/PlayerUI/UIContainer/HealthBar.value = health
 
 func _on_Player_body_entered(Coin):
 	emit_signal("add_coins")
@@ -87,7 +89,6 @@ func shoot():
 
 func on_hit():
 	health -= 1
-	$Camera2D/PlayerUI/UIContainer/HealthBar.value = health
 	if health <= 0:
 		die()
 

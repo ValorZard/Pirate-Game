@@ -99,7 +99,7 @@ margin_top = 150.0
 margin_right = 366.0
 margin_bottom = 180.0
 
-[node name="Label" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/ReloadButton"]
+[node name="ReloadLabel" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/ReloadButton"]
 anchor_left = 0.5
 anchor_top = 0.104
 anchor_right = 0.5
@@ -118,7 +118,7 @@ margin_top = 225.0
 margin_right = 366.0
 margin_bottom = 255.0
 
-[node name="Label" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/HealButton"]
+[node name="HealLabel" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/HealButton"]
 anchor_left = 0.5
 anchor_top = 0.104
 anchor_right = 0.5
@@ -137,7 +137,7 @@ margin_top = 300.0
 margin_right = 366.0
 margin_bottom = 330.0
 
-[node name="Label" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/RotateButton"]
+[node name="RotateLabel" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/RotateButton"]
 anchor_left = 0.5
 anchor_top = 0.104
 anchor_right = 0.5
@@ -156,7 +156,7 @@ margin_top = 375.0
 margin_right = 366.0
 margin_bottom = 405.0
 
-[node name="Label" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/MovementButton"]
+[node name="MovementLabel" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/MovementButton"]
 anchor_left = 0.5
 anchor_top = 0.104
 anchor_right = 0.5

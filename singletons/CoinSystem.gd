@@ -1,11 +1,11 @@
 extends Node
 
-var score
+var coin_amt : int
 
 
 func _ready():
-	score = 0
+	coin_amt = 0
 
 func add_coin():
-	score += 1
-	print(score)
+	coin_amt += 1
+	#print(score)
