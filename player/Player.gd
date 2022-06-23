@@ -57,7 +57,7 @@ func _process(delta : float):
 		else:	
 			velocity.y = lerp(velocity.y, 0, friction)
 		
-		
+		print(velocity)
 		# shootin code
 		time_to_reload -= delta
 		# be able to shoot whenever you want once you've finished reloading
@@ -67,12 +67,12 @@ func _process(delta : float):
 				time_to_reload = max_time_to_reload
 
 		if velocity.length() > 0:
-			velocity = velocity.normalized() * speed
-			velocity = velocity.rotated(deg2rad(current_rotation))
+			#velocity = velocity.rotated(deg2rad(current_rotation))
+			pass
 		else:
 			pass
 			
-		move_and_slide(velocity)
+		move_and_slide(velocity.rotated(deg2rad(current_rotation)))
 
 func _on_Player_body_entered(Coin):
 	emit_signal("add_coins")

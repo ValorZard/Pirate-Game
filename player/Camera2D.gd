@@ -6,3 +6,4 @@ func _ready():
 	
 func _process(delta):
 	$PlayerUI/CoinCounter.text = str(CoinSystem.score)
+	$PlayerUI/PositionLabel.text = "Current Position: " + str(get_parent().position)

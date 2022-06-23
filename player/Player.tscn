@@ -73,6 +73,7 @@ text = "Shop"
 script = ExtResource( 7 )
 
 [node name="ShopPanel" type="Panel" parent="Camera2D/PlayerUI/ShopButton"]
+visible = false
 margin_left = -269.0
 margin_top = -490.0
 margin_right = 710.0
@@ -175,6 +176,14 @@ margin_top = -85.0
 margin_right = 144.0
 margin_bottom = -19.0
 text = "Return to game"
+
+[node name="PositionLabel" type="Label" parent="Camera2D/PlayerUI"]
+margin_left = -503.0
+margin_top = 143.0
+margin_right = -435.0
+margin_bottom = 173.0
+custom_fonts/font = ExtResource( 8 )
+text = "Current Position: "
 
 [connection signal="button_down" from="Camera2D/PlayerUI/ShopButton" to="Camera2D/PlayerUI/ShopButton" method="_on_ShopButton_button_down"]
 [connection signal="button_down" from="Camera2D/PlayerUI/ShopButton/ShopPanel/ReloadButton" to="Camera2D/PlayerUI/ShopButton/ShopPanel" method="_on_ReloadButton_button_down"]
