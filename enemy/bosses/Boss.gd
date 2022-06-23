@@ -10,7 +10,7 @@ export var default_position : Vector2
 
 # combat variables
 export (PackedScene) var cannon_ball = preload("res://bullets/BossCannonBall.tscn")
-export var max_time_to_reload : float = 0.5
+export var max_time_to_reload : float = 1.5
 var time_to_reload : float
 
 # dialog related variables
@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 			direction = distance.normalized()
 			# then, shoot bullets if reload time is up
 			if time_to_reload <= 0:
-				shoot(distance)
+				shoot()
 				time_to_reload = max_time_to_reload
 			time_to_reload -= delta
 		else:
@@ -104,12 +104,11 @@ func _on_Detector_body_exited(body):
 		#remove_child(current_dialog)
 		#current_dialog.queue_free()
 
-
-func shoot(direction : Vector2):
+func shoot():
 	var c = cannon_ball.instance()
-	c.bodyshotfrom = self
-	c.direction = direction
+	var direction : Vector2 = player.position - self.position
 	c.position = self.position
+	c.direction = direction.normalized()
 	get_tree().get_root().add_child(c)
 
 
