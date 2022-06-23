@@ -82,8 +82,8 @@ func die():
 	current_dialog = Dialogic.start(defeat_dialog)
 	current_dialog.connect("dialogic_signal", self, "dialog_listener")
 	get_tree().get_root().add_child(current_dialog)
-	queue_free()
-
+	#queue_free() 
+	
 func _on_Detector_body_entered(body):
 	if body is PlayerController:
 		player = body
@@ -121,6 +121,9 @@ func dialog_listener(string):
 			SignalManager.emit_signal("start_dialog")
 		"end_dialog":
 			SignalManager.emit_signal("end_dialog")
+		"death_dialog":
+			SignalManager.emit_signal("end_dialog")
+			queue_free()
 
 func start_dialog():
 	in_dialog = true

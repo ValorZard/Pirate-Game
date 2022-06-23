@@ -11,7 +11,7 @@
 			"text": "Argh! How could you have defeated me?"
 		},
 		{
-			"emit_signal": "end_dialog",
+			"emit_signal": "death_dialog",
 			"event_id": "dialogic_040"
 		}
 	],
