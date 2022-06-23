@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://level/Level.gd" type="Script" id=1]
 [ext_resource path="res://enemy/bosses/Boss.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=6]
 [ext_resource path="res://enemy/bosses/KidBoss.tscn" type="PackedScene" id=7]
 [ext_resource path="res://enemy/bosses/FurryBoss.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemy/bosses/EGirlBoss.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 30.0127, 24.3121 )
@@ -81,11 +82,14 @@ position = Vector2( 737, 287 )
 [node name="Boss" parent="." instance=ExtResource( 2 )]
 position = Vector2( 704, -161 )
 
-[node name="EGirlBoss" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1720, -867 )
-
 [node name="KidBoss" parent="." instance=ExtResource( 7 )]
 position = Vector2( -782, 791 )
 
 [node name="FurryBoss" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1731, 849 )
+first_dialog = "/first_furry_talk"
+rematch_dialog = "/furry_rematch"
+defeat_dialog = "/furry_defeat"
+
+[node name="EGirlBoss" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1563, 180 )

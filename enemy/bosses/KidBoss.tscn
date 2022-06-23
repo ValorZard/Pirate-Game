@@ -13,6 +13,8 @@ radius = 200.0
 [node name="KidBoss" type="KinematicBody2D"]
 script = ExtResource( 2 )
 first_dialog = "/first_kid_talk"
+rematch_dialog = "/kid_rematch"
+defeat_dialog = "/kid_defeat"
 
 [node name="Icon" type="Sprite" parent="."]
 scale = Vector2( 0.05, 0.05 )
