@@ -1,0 +1,27 @@
+{
+	"events": [
+		{
+			"emit_signal": "start_dialog",
+			"event_id": "dialogic_040"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Argh! How could you have defeated me?"
+		},
+		{
+			"emit_signal": "death_dialog",
+			"event_id": "dialogic_040"
+		},
+		{
+			"change_scene": "res://level/menu/MenuScreen.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.2 - Dev",
+		"file": "timeline-1655773928.json",
+		"name": "defeat"
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"emit_signal": "start_dialog",
+			"event_id": "dialogic_040"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey, you! You lookin' for a fight?"
+		},
+		{
+			"emit_signal": "end_dialog",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.2 - Dev",
+		"file": "timeline-1655773909.json",
+		"name": "first_contact"
+	}
+}

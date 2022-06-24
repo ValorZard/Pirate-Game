@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Tahoma_Regular_font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://level/menu/MenuScreen.gd" type="Script" id=2]
+[ext_resource path="res://level/Tiles/water.jpg" type="Texture" id=3]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -81.0
+margin_top = 34.0
+margin_right = -81.0
+margin_bottom = 34.0
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.25
+margin_top = -31.0
+margin_bottom = 31.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Pirates of the Digital Ocean"
+align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -350.0
+margin_right = 200.0
+alignment = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+margin_top = 165.0
+margin_right = 400.0
+margin_bottom = 185.0
+text = "Start Game"
+
+[node name="Water" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 590.5, 256 )
+scale = Vector2( 0.711219, 0.551774 )
+texture = ExtResource( 3 )
+
+[connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_StartButton_button_down"]
