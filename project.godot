@@ -77,7 +77,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "PlayerController",
 "language": "GDScript",
-"path": "res://player/Player.gd"
+"path": "res://player/PlayerController.gd"
 } ]
 _global_script_class_icons={
 "DTS": "",
