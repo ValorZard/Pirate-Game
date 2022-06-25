@@ -47,6 +47,37 @@ func _process(delta):
 	$ReloadButton/ReloadLabel.text = "Decrease Cannon Reload Time (Current Level " + str(reload_level) + ")"
 	$RotateButton/RotateLabel.text = "Increase Rotation Speed (Current Level " + str(rotate_level) + ")"
 	$MovementButton/MovementLabel.text = "Increase Movement Speed (Current Level " + str(movement_level) + ")"
+	
+	# set cost for reload
+	if reload_level == 0:
+		$ReloadButton/CostLabel.text = "Cost: " + str(level_one_price)
+	elif reload_level == 1:
+		$ReloadButton/CostLabel.text = "Cost: " + str(level_two_price)
+	elif reload_level == 2:
+		$ReloadButton/CostLabel.text = "Cost: " + str(level_three_price)
+	else:
+		$ReloadButton/CostLabel.text = "Maxed Out!"
+	
+	$HealButton/CostLabel.text = "Cost: " + str(heal_price)
+	
+	if rotate_level == 0:
+		$RotateButton/CostLabel.text = "Cost: " + str(level_one_price)
+	elif rotate_level == 1:
+		$RotateButton/CostLabel.text = "Cost: " + str(level_two_price)
+	elif rotate_level == 2:
+		$RotateButton/CostLabel.text = "Cost: " + str(level_three_price)
+	else:
+		$RotateButton/CostLabel.text = "Maxed Out!"
+	
+	if movement_level == 0:
+		$MovementButton/CostLabel.text = "Cost: " + str(level_one_price)
+	elif movement_level == 1:
+		$MovementButton/CostLabel.text = "Cost: " + str(level_two_price)
+	elif movement_level == 2:
+		$MovementButton/CostLabel.text = "Cost: " + str(level_three_price)
+	else:
+		$MovementButton/CostLabel.text = "Maxed Out!"
+	
 
 
 func _on_ReturnButton_button_down():

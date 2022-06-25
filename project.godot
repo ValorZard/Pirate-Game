@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/dialogic/Other/DialogicUtil.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://enemy/Enemy.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
@@ -73,11 +78,6 @@ _global_script_classes=[ {
 "class": "PlayerController",
 "language": "GDScript",
 "path": "res://player/Player.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "Slime",
-"language": "GDScript",
-"path": "res://enemy/Slime.gd"
 } ]
 _global_script_class_icons={
 "DTS": "",
@@ -90,10 +90,10 @@ _global_script_class_icons={
 "DialogicParser": "",
 "DialogicResources": "",
 "DialogicUtil": "",
+"Enemy": "",
 "GitAPI": "",
 "HistoryRow": "",
-"PlayerController": "",
-"Slime": ""
+"PlayerController": ""
 }
 
 [application]

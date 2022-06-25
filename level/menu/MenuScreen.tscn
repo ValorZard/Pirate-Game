@@ -13,10 +13,6 @@ font_data = ExtResource( 1 )
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -81.0
-margin_top = 34.0
-margin_right = -81.0
-margin_bottom = 34.0
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
@@ -54,8 +50,8 @@ text = "Start Game"
 
 [node name="Water" type="Sprite" parent="."]
 show_behind_parent = true
-position = Vector2( 590.5, 256 )
 scale = Vector2( 0.711219, 0.551774 )
 texture = ExtResource( 3 )
+centered = false
 
 [connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_StartButton_button_down"]

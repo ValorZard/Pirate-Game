@@ -74,7 +74,6 @@ text = "Shop"
 script = ExtResource( 7 )
 
 [node name="ShopPanel" type="Panel" parent="Camera2D/PlayerUI/ShopButton"]
-visible = false
 margin_left = -269.0
 margin_top = -490.0
 margin_right = 710.0
@@ -112,6 +111,18 @@ custom_fonts/font = ExtResource( 8 )
 text = "Decrease Cannon Reload Time"
 align = 1
 
+[node name="CostLabel" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/ReloadButton"]
+anchor_left = 0.5
+anchor_top = 0.104
+anchor_right = 0.5
+anchor_bottom = 0.104
+margin_left = -250.0
+margin_top = -3.12
+margin_right = 100.0
+margin_bottom = 26.88
+custom_fonts/font = ExtResource( 8 )
+text = "Cost:"
+
 [node name="HealButton" type="Button" parent="Camera2D/PlayerUI/ShopButton/ShopPanel"]
 margin_left = 250.0
 margin_top = 225.0
@@ -130,6 +141,18 @@ margin_bottom = 26.88
 custom_fonts/font = ExtResource( 8 )
 text = "Heal Your Ship!"
 align = 1
+
+[node name="CostLabel" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/HealButton"]
+anchor_left = 0.5
+anchor_top = 0.104
+anchor_right = 0.5
+anchor_bottom = 0.104
+margin_left = -250.0
+margin_top = -3.12
+margin_right = 100.0
+margin_bottom = 26.88
+custom_fonts/font = ExtResource( 8 )
+text = "Cost:"
 
 [node name="RotateButton" type="Button" parent="Camera2D/PlayerUI/ShopButton/ShopPanel"]
 margin_left = 250.0
@@ -150,6 +173,18 @@ custom_fonts/font = ExtResource( 8 )
 text = "Increase Rotation Speed"
 align = 1
 
+[node name="CostLabel" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/RotateButton"]
+anchor_left = 0.5
+anchor_top = 0.104
+anchor_right = 0.5
+anchor_bottom = 0.104
+margin_left = -250.0
+margin_top = -3.12
+margin_right = 100.0
+margin_bottom = 26.88
+custom_fonts/font = ExtResource( 8 )
+text = "Cost:"
+
 [node name="MovementButton" type="Button" parent="Camera2D/PlayerUI/ShopButton/ShopPanel"]
 margin_left = 250.0
 margin_top = 375.0
@@ -168,6 +203,18 @@ margin_bottom = 26.88
 custom_fonts/font = ExtResource( 8 )
 text = "Increase Movement Speed"
 align = 1
+
+[node name="CostLabel" type="Label" parent="Camera2D/PlayerUI/ShopButton/ShopPanel/MovementButton"]
+anchor_left = 0.5
+anchor_top = 0.104
+anchor_right = 0.5
+anchor_bottom = 0.104
+margin_left = -250.0
+margin_top = -3.12
+margin_right = 100.0
+margin_bottom = 26.88
+custom_fonts/font = ExtResource( 8 )
+text = "Cost:"
 
 [node name="ReturnButton" type="Button" parent="Camera2D/PlayerUI/ShopButton/ShopPanel"]
 anchor_top = 1.0

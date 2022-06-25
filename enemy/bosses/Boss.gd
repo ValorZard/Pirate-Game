@@ -55,9 +55,6 @@ func _ready():
 	SignalManager.connect("start_dialog", self, "start_dialog")
 	SignalManager.connect("end_dialog", self, "end_dialog")
 
-func _process(delta):
-	pass
-
 func _physics_process(delta: float) -> void:
 	if !in_dialog:
 		var direction : Vector2

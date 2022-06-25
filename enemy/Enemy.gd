@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-class_name Slime
+class_name Enemy
 
 var player: PlayerController
 export var max_health : int = 10
@@ -14,20 +14,28 @@ export var speed : float = 100.0
 
 var in_dialog : bool = false
 
-func _ready():
+func _setup_enemy():
 	add_to_group("mobs")
+	
 	time_to_shoot = max_time_to_shoot
+	
+	# self default position to where we place enemy at the start of the game
 	default_position = self.position
-	# health
+	
+	# health stuff
 	health = max_health
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
 	
+	# Setup signals
 	SignalManager.connect("start_dialog", self, "start_dialog")
 	SignalManager.connect("end_dialog", self, "end_dialog")
+	
+	$Detector.connect("body_entered", self, "_on_Detector_body_entered")
+	$Detector.connect("body_exited", self, "_on_Detector_body_exited")
 
-func _process(delta):
-	pass
+func _ready():
+	_setup_enemy()
 
 func _physics_process(delta: float) -> void:
 	if !in_dialog:
